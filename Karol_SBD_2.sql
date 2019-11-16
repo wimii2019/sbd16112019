@@ -93,5 +93,12 @@ BEGIN
 END;
 /
 
+CREATE TABLE emp_audit(
+  emp_autit_id NUMBER(4) PRIMARY KEY,
+  act_date DATE,
+  table_name VARCHAR2(20),
+  action VARCHAR2(10)
+);
 
+create SEQUENCE emp_audit_seq;
 
