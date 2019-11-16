@@ -65,3 +65,33 @@ END;
 /
 
 
+BEGIN
+
+FOR vr_country in (SELECT * FROM COUNTRIES) LOOP
+  dbms_output.put_line('Country: '|| vr_country.region_id);
+END LOOP;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE
+hello_world
+IS
+begin
+dbms_output.put_line('Hello world');
+end;
+/
+
+EXECUTE hello_world;
+
+CREATE OR REPLACE FUNCTION country_name(p_id COUNTRIES.COUNTRY_ID%TYPE)
+RETURN COUNTRIES.COUNTRY_NAME%TYPE
+IS
+  v_name COUNTRIES.COUNTRY_NAME%TYPE;
+BEGIN
+  SELECT COUNTRY_NAME INTO v_name FROM COUNTRIES WHERE COUNTRY_ID= p_id;
+  RETURN  v_name;
+END;
+/
+
+
+
